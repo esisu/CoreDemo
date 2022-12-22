@@ -18,10 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\CoreDemo.Entities\CoreDemo.Project.Entities.csproj" />
   </ItemGroup>
 

@@ -2,8 +2,7 @@
 
 namespace CoreDemo.Project.DataAccess.Abstract
 {
-    public interface IBlogDal:IGenericDal<Blog>
+    public interface IContactDal:IGenericDal<Contact>
     {
-        
     }
 }
