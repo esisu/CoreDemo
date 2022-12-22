@@ -9,36 +9,37 @@ namespace CoreDemo.Project.Business.Concrete
 {
     public class CategoryManager : ICategoryService
     {
-        private readonly EfCategoryRepository _efCategoryRepository;
+        private readonly ICategoryDal _categoryDal;
 
-        public CategoryManager(ICategoryDal categoryDal, EfCategoryRepository efCategoryRepository)
+        public CategoryManager(ICategoryDal categoryDal)
         {
-            _efCategoryRepository = efCategoryRepository;
+            _categoryDal = categoryDal;
         }
 
         public void AddCategory(Category category)
         {
-            _efCategoryRepository.Insert(category);
+            _categoryDal.Insert(category);
         }
 
         public void UpdateCategory(Category category)
         {
-            _efCategoryRepository.Update(category);
+            _categoryDal.Update(category);
         }
 
         public void DeleteCategory(Category category)
         {
-            _efCategoryRepository.Delete(category);
+            _categoryDal.Delete(category);
         }
 
         public List<Category> GetAllCategories()
         {
-            return _efCategoryRepository.GetListAll();
+            return _categoryDal.GetListAll();
         }
 
         public Category GetCategoryById(int id)
         {
-            return _efCategoryRepository.GetById(id);
+            return _categoryDal.GetById(id);
         }
+
     }
 }
