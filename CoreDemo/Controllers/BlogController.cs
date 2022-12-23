@@ -16,5 +16,20 @@ namespace CoreDemo.Project.Web.UI.Controllers
 
             return View(blogs);
         }
+
+        public IActionResult BlogDetails(int id)
+        {
+            List<Blog> blogs = _blogManager.GetAllBlogs(id);
+
+            return View(blogs);
+        }
+
+        public IActionResult BlogReadAll(int id)
+        {
+            Blog blog = _blogManager.GetBlogById(id);
+
+            return View(blog);
+        }
+
     }
 }

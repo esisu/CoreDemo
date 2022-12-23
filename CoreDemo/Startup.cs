@@ -19,6 +19,10 @@ namespace CoreDemo.Project.Web.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            //Add Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation NuGet package to the project
+            //Sayfa Refresh Yapmak için eklendi.
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

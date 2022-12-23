@@ -43,5 +43,11 @@ namespace CoreDemo.Project.Business.Concrete
         {
             return _blogDal.GetListWithCategory();
         }
+
+        public List<Blog> GetAllBlogs(int id)
+        {
+            return _blogDal.GetListAll(x=>x.BlogId==id);
+        }
+
     }
 }

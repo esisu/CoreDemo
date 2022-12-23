@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CoreDemo.Project.Business.Abstract;
 using CoreDemo.Project.DataAccess.Abstract;
-using CoreDemo.Project.DataAccess.EntityFramework;
 using CoreDemo.Project.Entities.Concrete;
 
 namespace CoreDemo.Project.Business.Concrete
