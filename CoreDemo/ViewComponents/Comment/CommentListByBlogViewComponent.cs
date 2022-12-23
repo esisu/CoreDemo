@@ -1,13 +1,11 @@
 ﻿using CoreDemo.Project.Business.Concrete;
 using CoreDemo.Project.DataAccess.EntityFramework;
-using CoreDemo.Project.Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using CoreDemo.Project.Web.UI.Models;
 
-namespace CoreDemo.Project.Web.UI.ViewComponents
+namespace CoreDemo.Project.Web.UI.ViewComponents.Comment
 {
-    public class CommentList:ViewComponent
+    public class CommentListByBlogViewComponent : ViewComponent
     {
         private readonly CommentManager _commentManager = new CommentManager(new EfCommentRepository());
 
@@ -25,6 +23,5 @@ namespace CoreDemo.Project.Web.UI.ViewComponents
 
             //return View(comments);
         }
-
     }
 }
