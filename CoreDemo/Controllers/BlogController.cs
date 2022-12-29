@@ -27,7 +27,6 @@ namespace CoreDemo.Project.Web.UI.Controllers
         public IActionResult BlogReadAll(int id)
         {
             Blog blog = _blogManager.GetBlogById(id);
-
             return View(blog);
         }
 

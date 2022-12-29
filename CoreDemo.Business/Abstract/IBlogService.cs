@@ -19,5 +19,7 @@ namespace CoreDemo.Project.Business.Abstract
 
         List<Blog> GetAllBlogs(int id);
 
+        List<Blog> GetBlogListByWriter(int id);
+
     }
 }

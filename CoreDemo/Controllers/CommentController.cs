@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using CoreDemo.Project.Business.Concrete;
 using CoreDemo.Project.DataAccess.EntityFramework;
 using CoreDemo.Project.Entities.Concrete;
@@ -18,6 +19,18 @@ namespace CoreDemo.Project.Web.UI.Controllers
         public PartialViewResult AddCommentPartial()
         {
             return PartialView();
+        }
+
+        [HttpPost]
+        public RedirectToActionResult AddCommentPartial(Comment comment)
+        {
+            comment.CommentDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            comment.CommentStatus = true;
+            comment.BlogId = 5;
+
+            _commentManager.AddComment(comment);
+
+            return RedirectToAction("Index","Blog");
         }
 
         public PartialViewResult CommentListByBlogPartial(int id)

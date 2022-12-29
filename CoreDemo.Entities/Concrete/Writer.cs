@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CoreDemo.Project.Entities.Concrete
 {
@@ -18,6 +19,8 @@ namespace CoreDemo.Project.Entities.Concrete
         public string WriterPassword { get; set; }
 
         public bool WriterStatus { get; set; }
+
+        public List<Blog> Blogs { get; set; }
 
     }
 }
