@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoreDemo.Project.DataAccess.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20221229120841_WriterBlogEklenmesi")]
-    partial class WriterBlogEklenmesi
+    [Migration("20221229201900_anotherPc")]
+    partial class anotherPc
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -172,6 +172,24 @@ namespace CoreDemo.Project.DataAccess.Migrations
                     b.HasKey("ContactId");
 
                     b.ToTable("Contacts");
+                });
+
+            modelBuilder.Entity("CoreDemo.Project.Entities.Concrete.Newsletter", b =>
+                {
+                    b.Property<int>("MailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Mail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("MailId");
+
+                    b.ToTable("Newsletters");
                 });
 
             modelBuilder.Entity("CoreDemo.Project.Entities.Concrete.Writer", b =>
