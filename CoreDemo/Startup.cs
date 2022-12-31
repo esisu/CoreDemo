@@ -38,6 +38,7 @@ namespace CoreDemo.Project.Web.UI
             }
 
             //app.UseStatusCodePages();
+            //404 Hata sayfasý 
             app.UseStatusCodePagesWithReExecute("/ErrorPage/Error1", "?code={0}");
 
             app.UseStaticFiles();
