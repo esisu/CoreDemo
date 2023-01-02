@@ -6,18 +6,18 @@ namespace CoreDemo.Project.Web.UI.Controllers
 {
 	public class AboutController : Controller
 	{
-
-		AboutManager aboutManager = new AboutManager(new EfAboutRepository());
+        readonly AboutManager _aboutManager = new AboutManager(new EfAboutRepository());
 
 		public IActionResult Index()
 		{
-			return View();
+            var values = _aboutManager.GetList();
+            return View(values);
 		}
 
 		public PartialViewResult SocialMediaAbout()
 		{
-			var values = aboutManager.GetList();
-			return PartialView(values);
+			
+			return PartialView();
 		}
 
 	}
