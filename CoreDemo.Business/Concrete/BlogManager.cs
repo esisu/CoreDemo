@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using CoreDemo.Project.Business.Abstract;
 using CoreDemo.Project.DataAccess.Abstract;
 using CoreDemo.Project.Entities.Concrete;
@@ -53,6 +54,12 @@ namespace CoreDemo.Project.Business.Concrete
         {
             return _blogDal.GetListAll(x => x.WriterId == id);
         }
+
+        public List<Blog> GetLast3BLog()
+        {
+            return _blogDal.GetListAll().OrderByDescending(x=>x.BlogId).Take(3).ToList();
+        }
+
     }
 
 }
