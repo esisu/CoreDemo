@@ -12,7 +12,7 @@ namespace CoreDemo.Project.Web.UI.Controllers
 
         public IActionResult Index()
         {
-            List<Category> values =_categoryManager.GetAllCategories();
+            List<Category> values =_categoryManager.GetList();
             return View(values);
         }
     }

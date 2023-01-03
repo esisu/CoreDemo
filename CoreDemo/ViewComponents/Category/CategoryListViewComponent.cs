@@ -11,7 +11,7 @@ namespace CoreDemo.Project.Web.UI.ViewComponents.Category
 
         public IViewComponentResult Invoke(int id)
         {
-            List<Entities.Concrete.Category> categories = _categoryManager.GetAllCategories();
+            List<Entities.Concrete.Category> categories = _categoryManager.GetList();
             return View(categories);
         }
     }

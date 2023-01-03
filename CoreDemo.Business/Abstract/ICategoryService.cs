@@ -3,16 +3,16 @@ using CoreDemo.Project.Entities.Concrete;
 
 namespace CoreDemo.Project.Business.Abstract
 {
-    public interface ICategoryService
+    public interface ICategoryService:IGenericService<Category>
     {
-        void AddCategory(Category category);
+        //void AddCategory(Category category);
         
-        void UpdateCategory(Category category);
+        //void UpdateCategory(Category category);
         
-        void DeleteCategory(Category category);
+        //void DeleteCategory(Category category);
 
-        List<Category> GetAllCategories();
+        //List<Category> GetAllCategories();
 
-        Category GetCategoryById(int id);
+        //Category GetCategoryById(int id);
     }
 }

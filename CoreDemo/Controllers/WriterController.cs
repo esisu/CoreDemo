@@ -22,5 +22,23 @@ namespace CoreDemo.Project.Web.UI.Controllers
             return View();
         }
 
+        [AllowAnonymous]
+        public IActionResult Test()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        public PartialViewResult WriterPanelNavBarPartial()
+        {
+            return PartialView();
+        }
+
+        [AllowAnonymous]
+        public PartialViewResult WriterPanelFooterPartial()
+        {
+            return PartialView();
+        }
+
     }
 }
