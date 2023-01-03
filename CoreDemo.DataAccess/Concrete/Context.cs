@@ -25,5 +25,7 @@ namespace CoreDemo.Project.DataAccess.Concrete
 
         public DbSet<Newsletter> Newsletters { get; set; }
 
+        public DbSet<BlogRating> BlogRatings { get; set; }
+
     }
 }

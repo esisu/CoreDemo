@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoreDemo.Project.DataAccess.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20221229201900_anotherPc")]
-    partial class anotherPc
+    [Migration("20230103131723_mig_NewTable")]
+    partial class mig_NewTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -118,6 +118,9 @@ namespace CoreDemo.Project.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BLogScore")
+                        .HasColumnType("int");
 
                     b.Property<int>("BlogId")
                         .HasColumnType("int");

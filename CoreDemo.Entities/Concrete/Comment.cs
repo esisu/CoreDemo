@@ -21,5 +21,7 @@ namespace CoreDemo.Project.Entities.Concrete
         public int BlogId { get; set; }
 
         public Blog Blog { get; set; }
+
+        public int BLogScore { get; set; }
     }
 }

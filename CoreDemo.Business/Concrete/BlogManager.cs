@@ -18,7 +18,7 @@ namespace CoreDemo.Project.Business.Concrete
 
         //public void AddBlog(Blog blog)
         //{
-           
+
         //}
 
         //public void UpdateBlog(Blog blog)
@@ -41,6 +41,11 @@ namespace CoreDemo.Project.Business.Concrete
         //    return _blogDal.GetById(id);
         //}
 
+        public List<Blog> GetListWithCategoryByWriter(int id)
+        {
+            return _blogDal.GetListWithCategoryByWriter(id);
+        }
+        
         public List<Blog> GetBlogListWithCategory()
         {
             return _blogDal.GetListWithCategory();

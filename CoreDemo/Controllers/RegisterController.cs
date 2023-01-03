@@ -25,7 +25,7 @@ namespace CoreDemo.Project.Web.UI.Controllers
             {
                 writer.WriterAbout = "Hakkımda";
                 writer.WriterStatus = true;
-                wm.WriterAdd(writer);
+                wm.TAdd(writer);
                 return RedirectToAction("Index", "Blog");
             }
             else
@@ -35,7 +35,7 @@ namespace CoreDemo.Project.Web.UI.Controllers
                     ModelState.AddModelError(item.PropertyName,item.ErrorMessage);
                 }
             }
-            return View();;
+            return View();
         }
 
     }

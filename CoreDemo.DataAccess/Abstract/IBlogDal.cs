@@ -8,5 +8,7 @@ namespace CoreDemo.Project.DataAccess.Abstract
 
         List<Blog> GetListWithCategory();
 
+        List<Blog> GetListWithCategoryByWriter(int id);
+
     }
 }

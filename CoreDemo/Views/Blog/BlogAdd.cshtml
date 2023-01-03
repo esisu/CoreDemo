@@ -1,0 +1,33 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "BlogAdd";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Basic form elements</h4>
+            <p class="card-description"> Basic form elements </p>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label for="exampleInputName1">BlogTitle</label>
+                    <input type="text" class="form-control" id="exampleInputName1" placeholder="BlogTitle" name="BlogTitle">
+                    <span asp-validation-for="BlogTitle" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">BlogContent</label>
+                    <input type="text" class="form-control" id="exampleInputName1" placeholder="BlogContent" name="BlogContent">
+                    <span asp-validation-for="BlogContent" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Kategoriler</label>
+                    @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.KategoriListesi,new {@class="form-control"})
+                </div>
+                <button type="submit" class="btn btn-gradient-primary mr-2">Ekle</button>
+            </form>
+        </div>
+    </div>
+</div>

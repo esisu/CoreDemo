@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CoreDemo.Project.DataAccess.Migrations
 {
-    public partial class anotherPc : Migration
+    public partial class firstMig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -133,7 +133,8 @@ namespace CoreDemo.Project.DataAccess.Migrations
                     CommentContent = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CommentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CommentStatus = table.Column<bool>(type: "bit", nullable: false),
-                    BlogId = table.Column<int>(type: "int", nullable: false)
+                    BlogId = table.Column<int>(type: "int", nullable: false),
+                    BLogScore = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
