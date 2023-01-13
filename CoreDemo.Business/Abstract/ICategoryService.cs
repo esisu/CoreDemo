@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using CoreDemo.Project.Entities.Concrete;
+﻿using CoreDemo.Project.Entities.Concrete;
 
 namespace CoreDemo.Project.Business.Abstract
 {

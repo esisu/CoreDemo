@@ -5,7 +5,6 @@ using CoreDemo.Project.Business.Concrete;
 using CoreDemo.Project.Business.ValidationRules;
 using CoreDemo.Project.DataAccess.EntityFramework;
 using CoreDemo.Project.Entities.Concrete;
-using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

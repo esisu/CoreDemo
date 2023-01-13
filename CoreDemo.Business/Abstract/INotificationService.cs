@@ -2,8 +2,8 @@
 
 namespace CoreDemo.Project.Business.Abstract
 {
-	public interface IAboutService:IGenericService<About>
-	{
-		//List<About> GetList();
-	}
+    public interface INotificationService:IGenericService<Notification>
+    {
+
+    }
 }

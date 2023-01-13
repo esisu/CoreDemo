@@ -18,13 +18,6 @@
             <i class="mdi mdi-home"></i>
         </span> Anasayfa
     </h3>
-    <nav aria-label="breadcrumb">
-        <ul class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">
-                <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-            </li>
-        </ul>
-    </nav>
 </div>
 <div class="row">
     <div class="col-md-4 stretch-card grid-margin">
@@ -34,7 +27,7 @@
                 <h4 class="font-weight-normal mb-3">
                     Toplam Blog Sayısı <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                 </h4>
-                <h2 class="mb-5">15</h2>
+                <h2 class="mb-5">@ViewBag.BlogToplamSayisi</h2>
                 <h6 class="card-text">Increased by 60%</h6>
             </div>
         </div>
@@ -46,7 +39,7 @@
                 <h4 class="font-weight-normal mb-3">
                     Sizin Blog Sayınız <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                 </h4>
-                <h2 class="mb-5">45,6334</h2>
+                <h2 class="mb-5">@ViewBag.GirisYapanKullaniciBlogToplamSayisi</h2>
                 <h6 class="card-text">Decreased by 10%</h6>
             </div>
         </div>
@@ -56,9 +49,9 @@
             <div class="card-body">
                 <img src="/WebWriter/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                 <h4 class="font-weight-normal mb-3">
-                    Son 7 Gün Blog Sayısı <i class="mdi mdi-diamond mdi-24px float-right"></i>
+                    Toplam Kategori Sayısı <i class="mdi mdi-diamond mdi-24px float-right"></i>
                 </h4>
-                <h2 class="mb-5">95,5741</h2>
+                <h2 class="mb-5">@ViewBag.ToplamKategoriSayisi</h2>
                 <h6 class="card-text">Increased by 5%</h6>
             </div>
         </div>
@@ -90,7 +83,9 @@
 
 @await Component.InvokeAsync("BlogListDashboard")
 
-<div class="row">
+@await Component.InvokeAsync("WriterAboutOnDashboard")
+
+@*<div class="row">
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
@@ -128,6 +123,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
 
 @await Component.InvokeAsync("CategoryListDashboard")
+

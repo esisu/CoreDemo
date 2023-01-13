@@ -39,9 +39,14 @@ namespace CoreDemo.Project.Business.Concrete
           return  _writerDal.GetListAll();
         }
 
-        public Writer GetById(int id)
+        public Writer TGetById(int id)
         {
           return  _writerDal.GetById(id);
+        }
+
+        public Writer GetById(int id)
+        {
+            return _writerDal.GetById(id);
         }
 
         public List<Writer> GetWriterById(int id)

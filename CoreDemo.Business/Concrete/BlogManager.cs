@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata;
 using CoreDemo.Project.Business.Abstract;
 using CoreDemo.Project.DataAccess.Abstract;
 using CoreDemo.Project.Entities.Concrete;

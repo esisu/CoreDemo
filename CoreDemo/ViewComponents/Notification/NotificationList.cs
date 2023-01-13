@@ -2,9 +2,9 @@
 using CoreDemo.Project.DataAccess.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CoreDemo.Project.Web.UI.ViewComponents.WriterPanel
+namespace CoreDemo.Project.Web.UI.ViewComponents.Notification
 {
-    public class WriterPanelNotification : ViewComponent
+    public class NotificationList:ViewComponent
     {
         readonly NotificationManager _notificationManager = new NotificationManager(new EfNotificationRepository());
 

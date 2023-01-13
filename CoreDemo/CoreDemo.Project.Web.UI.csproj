@@ -27,4 +27,8 @@
     <ProjectReference Include="..\CoreDemo.Entities\CoreDemo.Project.Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\WriterImageFiles\" />
+  </ItemGroup>
+
 </Project>
