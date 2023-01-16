@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CoreDemo.Project.DataAccess.Migrations
 {
-    public partial class firstMig : Migration
+    public partial class firstcom : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -23,6 +23,21 @@ namespace CoreDemo.Project.DataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Abouts", x => x.AboutId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BlogRatings",
+                columns: table => new
+                {
+                    BlogRatingId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BlogId = table.Column<int>(type: "int", nullable: false),
+                    TotalScore = table.Column<int>(type: "int", nullable: false),
+                    BlogRatingCount = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BlogRatings", x => x.BlogRatingId);
                 });
 
             migrationBuilder.CreateTable(
@@ -59,6 +74,24 @@ namespace CoreDemo.Project.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Messages",
+                columns: table => new
+                {
+                    MessageId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Sender = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Reciver = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Subject = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Details = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MessageDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Messages", x => x.MessageId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Newsletters",
                 columns: table => new
                 {
@@ -70,6 +103,24 @@ namespace CoreDemo.Project.DataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Newsletters", x => x.MailId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Notifications",
+                columns: table => new
+                {
+                    NotificationId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NotificationType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NotificationTypeSymbol = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NotificationDetails = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NotificationStatus = table.Column<bool>(type: "bit", nullable: false),
+                    NotificationColor = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NotificationDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Notifications", x => x.NotificationId);
                 });
 
             migrationBuilder.CreateTable(
@@ -169,13 +220,22 @@ namespace CoreDemo.Project.DataAccess.Migrations
                 name: "Abouts");
 
             migrationBuilder.DropTable(
+                name: "BlogRatings");
+
+            migrationBuilder.DropTable(
                 name: "Comments");
 
             migrationBuilder.DropTable(
                 name: "Contacts");
 
             migrationBuilder.DropTable(
+                name: "Messages");
+
+            migrationBuilder.DropTable(
                 name: "Newsletters");
+
+            migrationBuilder.DropTable(
+                name: "Notifications");
 
             migrationBuilder.DropTable(
                 name: "Blogs");
