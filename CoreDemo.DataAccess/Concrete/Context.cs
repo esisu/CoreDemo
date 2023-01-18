@@ -8,8 +8,24 @@ namespace CoreDemo.Project.DataAccess.Concrete
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder.UseSqlServer("server=DESKTOP-E6SPDSH\\SQLEXPRESS;database=CoreBlogDb;integrated security=true;");
-            //optionsBuilder.UseSqlServer("server=ISU-NB-00015;database=CoreBlogDb;integrated security=true;");
-            optionsBuilder.UseSqlServer("server=ISU-NB-00015\\SQLEXPRESS;database=CoreBlogDb;integrated security=true;");
+            optionsBuilder.UseSqlServer("server=ISU-NB-00015;database=CoreBlogDb;integrated security=true;");
+            //optionsBuilder.UseSqlServer("server=ISU-NB-00015\\SQLEXPRESS;database=CoreBlogDb;integrated security=true;");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Message2>()
+                .HasOne(x => x.SenderUser)
+                .WithMany(y => y.WriterSender)
+                .HasForeignKey(z => z.SenderId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
+            modelBuilder.Entity<Message2>()
+                .HasOne(x => x.ReciverUser)
+                .WithMany(y => y.WriterReciver)
+                .HasForeignKey(z => z.ReciverId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
         }
 
         public DbSet<About> Abouts { get; set; }
@@ -29,8 +45,9 @@ namespace CoreDemo.Project.DataAccess.Concrete
         public DbSet<BlogRating> BlogRatings { get; set; }
 
         public DbSet<Notification> Notifications { get; set; }
-        
+
         public DbSet<Message> Messages { get; set; }
 
+        public DbSet<Message2> Messages2s { get; set; }
     }
 }

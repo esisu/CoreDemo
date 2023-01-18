@@ -226,6 +226,40 @@ namespace CoreDemo.Project.DataAccess.Migrations
                     b.ToTable("Messages");
                 });
 
+            modelBuilder.Entity("CoreDemo.Project.Entities.Concrete.Message2", b =>
+                {
+                    b.Property<int>("MessageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Details")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("MessageDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ReciverId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SenderId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MessageId");
+
+                    b.HasIndex("ReciverId");
+
+                    b.HasIndex("SenderId");
+
+                    b.ToTable("Messages2s");
+                });
+
             modelBuilder.Entity("CoreDemo.Project.Entities.Concrete.Newsletter", b =>
                 {
                     b.Property<int>("MailId")
@@ -334,6 +368,23 @@ namespace CoreDemo.Project.DataAccess.Migrations
                     b.Navigation("Blog");
                 });
 
+            modelBuilder.Entity("CoreDemo.Project.Entities.Concrete.Message2", b =>
+                {
+                    b.HasOne("CoreDemo.Project.Entities.Concrete.Writer", "ReciverUser")
+                        .WithMany("WriterReciver")
+                        .HasForeignKey("ReciverId")
+                        .IsRequired();
+
+                    b.HasOne("CoreDemo.Project.Entities.Concrete.Writer", "SenderUser")
+                        .WithMany("WriterSender")
+                        .HasForeignKey("SenderId")
+                        .IsRequired();
+
+                    b.Navigation("ReciverUser");
+
+                    b.Navigation("SenderUser");
+                });
+
             modelBuilder.Entity("CoreDemo.Project.Entities.Concrete.Blog", b =>
                 {
                     b.Navigation("Comments");
@@ -347,6 +398,10 @@ namespace CoreDemo.Project.DataAccess.Migrations
             modelBuilder.Entity("CoreDemo.Project.Entities.Concrete.Writer", b =>
                 {
                     b.Navigation("Blogs");
+
+                    b.Navigation("WriterReciver");
+
+                    b.Navigation("WriterSender");
                 });
 #pragma warning restore 612, 618
         }

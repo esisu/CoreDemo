@@ -21,6 +21,10 @@ namespace CoreDemo.Project.Entities.Concrete
         public bool WriterStatus { get; set; }
 
         public List<Blog> Blogs { get; set; }
+        
+        public virtual ICollection<Message2> WriterSender { get;}
+
+        public virtual ICollection<Message2> WriterReciver { get; }
 
     }
 }

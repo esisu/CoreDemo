@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CoreDemo.Project.DataAccess.Migrations
 {
-    public partial class firstcom : Migration
+    public partial class mig_Message22 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -174,6 +174,36 @@ namespace CoreDemo.Project.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Messages2s",
+                columns: table => new
+                {
+                    MessageId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SenderId = table.Column<int>(type: "int", nullable: false),
+                    ReciverId = table.Column<int>(type: "int", nullable: false),
+                    Subject = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Details = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MessageDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Messages2s", x => x.MessageId);
+                    table.ForeignKey(
+                        name: "FK_Messages2s_Writer_ReciverId",
+                        column: x => x.ReciverId,
+                        principalTable: "Writer",
+                        principalColumn: "WriterId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Messages2s_Writer_SenderId",
+                        column: x => x.SenderId,
+                        principalTable: "Writer",
+                        principalColumn: "WriterId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Comments",
                 columns: table => new
                 {
@@ -212,6 +242,16 @@ namespace CoreDemo.Project.DataAccess.Migrations
                 name: "IX_Comments_BlogId",
                 table: "Comments",
                 column: "BlogId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Messages2s_ReciverId",
+                table: "Messages2s",
+                column: "ReciverId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Messages2s_SenderId",
+                table: "Messages2s",
+                column: "SenderId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -230,6 +270,9 @@ namespace CoreDemo.Project.DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "Messages");
+
+            migrationBuilder.DropTable(
+                name: "Messages2s");
 
             migrationBuilder.DropTable(
                 name: "Newsletters");
