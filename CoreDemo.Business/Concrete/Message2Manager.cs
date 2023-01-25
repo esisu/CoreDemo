@@ -37,12 +37,13 @@ namespace CoreDemo.Project.Business.Concrete
 
         public Message2 GetById(int id)
         {
-            throw new NotImplementedException();
+            return _messageDal.GetById(id);
         }
 
         public List<Message2> GetInboxListByWriter(int id)
         {
-            return _messageDal.GetListAll(x => x.ReciverId==id);
+            return _messageDal.GetListWithMessageByWriter(id);
+            //return _messageDal.GetListAll(x => x.ReciverId==id);
         }
         
     }

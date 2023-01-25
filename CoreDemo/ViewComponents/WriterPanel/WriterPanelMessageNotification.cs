@@ -13,7 +13,7 @@ namespace CoreDemo.Project.Web.UI.ViewComponents.WriterPanel
 
         public IViewComponentResult Invoke()
         {
-            int id = 1;
+            int id = 2;
             List<Message2> values = _messageManager.GetInboxListByWriter(id).ToList();
             return View(values);
         }
