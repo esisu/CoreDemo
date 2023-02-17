@@ -23,7 +23,6 @@ namespace CoreDemo.Project.Web.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(Writer writer)
         {
-
             Context context = new Context();
             var dataValues = context.Writer.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
             if (dataValues != null)

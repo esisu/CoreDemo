@@ -8,8 +8,7 @@ namespace CoreDemo.Project.DataAccess.Concrete
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder.UseSqlServer("server=DESKTOP-E6SPDSH\\SQLEXPRESS;database=CoreBlogDb;integrated security=true;");
-            optionsBuilder.UseSqlServer("server=ISU-NB-00015;database=CoreBlogDb;integrated security=true;");
-            //optionsBuilder.UseSqlServer("server=ISU-NB-00015\\SQLEXPRESS;database=CoreBlogDb;integrated security=true;");
+            optionsBuilder.UseSqlServer("server=ISU-NB-00414\\SQLEXPRESS;database=CoreBlogDb;integrated security=true;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

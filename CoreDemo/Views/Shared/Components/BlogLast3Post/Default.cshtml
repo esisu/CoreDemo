@@ -15,7 +15,8 @@
                     <a href="/Blog/BlogReadAll/@item.BlogId">@item.BlogTitle</a>
                 </h5>
                 <p class="card-text mb-3">
-                    @item.BlogContent.Substring(0, @item.BlogContent.Substring(0,50).LastIndexOf(" "))...
+                    @*@item.BlogContent.Substring(0, @item.BlogContent.Substring(0,1).LastIndexOf(" "))...*@
+                @item.BlogContent
                 </p>
                 <div class="sub-meta">
                     <span>
