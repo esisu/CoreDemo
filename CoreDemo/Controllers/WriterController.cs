@@ -22,11 +22,14 @@ namespace CoreDemo.Project.Web.UI.Controllers
         [Authorize]
         public IActionResult Index()
         {
-            var user = User.Identity.Name;
-            ViewBag.v = user;
-            Context c = new Context();
-            var userdetail = c.Writer.Where(x => x.WriterMail == user).Select(y => y.WriterName).FirstOrDefault();
-            ViewBag.v2 = userdetail;
+            if (User.Identity != null)
+            {
+                var user = User.Identity.Name;
+                ViewBag.v = user;
+                Context c = new Context();
+                var userdetail = c.Writer.Where(x => x.WriterMail == user).Select(y => y.WriterName).FirstOrDefault();
+                ViewBag.v2 = userdetail;
+            }
             return View();
         }
 
@@ -57,7 +60,10 @@ namespace CoreDemo.Project.Web.UI.Controllers
         
         public IActionResult EditProfile()
         {
-            var writerValues = _writerManager.TGetById(1);
+            Context c = new Context();
+            var userMail = User.Identity.Name;
+            var writerID = c.Writer.Where(x => x.WriterMail == userMail).Select(y => y.WriterId).FirstOrDefault();
+            var writerValues = _writerManager.TGetById(writerID);
             return View(writerValues);
         }
 

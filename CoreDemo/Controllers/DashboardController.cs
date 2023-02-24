@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDemo.Project.Web.UI.Controllers
 {
-    [AllowAnonymous]
+    //[AllowAnonymous]
     public class DashboardController : Controller
     {
         public IActionResult Index()
