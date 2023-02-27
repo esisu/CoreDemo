@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>Yazar Ajax İşlemleri</h5>
+                </div>
+                <div class="ibox-content">
+                    <button type="button" class="btn btn-danger" id="btnGetList">Yazar Listesi</button>
+                    <button type="button" class="btn btn-danger" id="btnGetList">Yazar Getir</button>
+                    <br />
+                    <div id="writerList">Yazar Listesi</div>
+                    <div id="writerGet">Tek Yazar Getir</div>
+                    <div>
+                        <input type="text" id="id" placeholder="Yazar Id" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*@section aaa
+    {*@
+<script>
+        $("#btnGetList").click(function () {
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                type: "Get",
+                url: "/Admin/Writer/WriterList",
+                success: function (func) {
+                    let w = JQuery.parseJSON(func)
+                    console.log(w);
+                    let tablehtml = "<table class=table table-borderd> <tr><th>yazar ıd</th><th>yazar adı</th></tr>";
+                    $.each(w, (index, value) => {
+                        tablehtml += `<tr><td>${value.id}</td><td>${value.name}</td></tr>`
+                    });
+                        tablehtml += "</table>";
+                        $("#writerList").html(tablehtml);
+                }
+            });
+        });
+
+
+    $("#writerGet").click(function () {
+        let id = $("#id").val();
+        console.log(id);
+        }
+    </script>
+@*}*@
