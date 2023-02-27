@@ -55,9 +55,9 @@
                                 <tr>
                                     <td>@item.CategoryId</td>
                                     <td>@item.CategoryName</td>
-                                    <td><a href="" class="btn btn-github">Aktif Yap</a></td>
-                                    <td><a href="" class="btn btn-github">Pasif Yap</a></td>
-                                    <td><a href="" class="btn btn-github">Düzenle</a></td>
+                                    <td><a href="" class="btn btn-danger">Aktif Yap</a></td>
+                                    <td><a href="/Admin/Category/CategoryDelete/@item.CategoryId" class="btn btn-warning" id="btnDelete" onclick="return confirm('Silmek İstiyor musunuz?');">Pasif Yap</a></td>
+                                    <td><a href="" class="btn btn-success">Düzenle</a></td>
                                 </tr>
                             }
                         </tbody>

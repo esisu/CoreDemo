@@ -1,2 +1,17 @@
 https://www.youtube.com/watch?v=usonRYn3OFE&list=PLKnjBHu2xXNNkinaVhPqPZG0ubaLN63ci&index=13&ab_channel=MuratY%C3%BCceda%C4%9F
-86.ders yapýldý.
+---
+Silmeden önce uyarý çýkarmak için return onclick
+<td><a href="/Admin/Category/CategoryDelete/@item.CategoryId" class="btn btn-warning" id="btnDelete" onclick="return confirm('Silmek Ýstiyor musunuz?');">Pasif Yap</a></td>
+---
+sayfalama örneði
+.net Core Herhangi bir listelemeyi sayfalama yapmak istersek aþaðýdaki yolu izliyoruz.
+X.PagedList ve X.PagedList.MVC.Core nuget paketlerini indiriyoruz
+Ardýndan listemele yaptýðýmýz Controller üzerinden .ToPagedList(page,3); methodunu ekliyoruz.
+Page deðerini parameter üzerinden default tanýmlýyoruz. Int page=1
+3 deðeri ise 1 sayfada kaç tane gözükmesini istediðimiz veri adetini belirtiyor.
+var values = cm.GetList().ToPagedList(page,3);
+ .cshtml tarafýnda @Html.PagedListPager((IPagedList)Model,page=> Url.Action("Index",new {page})) kodu ile verimizi basýyoruz.
+ ---
+
+ 
+
