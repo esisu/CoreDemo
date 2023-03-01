@@ -7,7 +7,6 @@ using CoreDemo.Project.DataAccess.Concrete;
 using CoreDemo.Project.DataAccess.EntityFramework;
 using CoreDemo.Project.Entities.Concrete;
 using FluentValidation.Results;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 

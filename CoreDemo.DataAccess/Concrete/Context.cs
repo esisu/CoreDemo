@@ -1,9 +1,10 @@
 ﻿using CoreDemo.Project.Entities.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CoreDemo.Project.DataAccess.Concrete
 {
-    public class Context : DbContext
+    public class Context : IdentityDbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -24,6 +25,8 @@ namespace CoreDemo.Project.DataAccess.Concrete
                 .WithMany(y => y.WriterReciver)
                 .HasForeignKey(z => z.ReciverId)
                 .OnDelete(DeleteBehavior.ClientSetNull);
+
+            base.OnModelCreating(modelBuilder);
 
         }
 
@@ -50,5 +53,6 @@ namespace CoreDemo.Project.DataAccess.Concrete
         public DbSet<Message2> Messages2s { get; set; }
 
         public DbSet<Admin> Admins { get; set; }
+
     }
 }

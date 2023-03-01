@@ -13,17 +13,17 @@
     <link href="/admin-tema/css/plugins/iCheck/custom.css" rel="stylesheet">
     <link href="/admin-tema/css/animate.css" rel="stylesheet">
     <link href="/admin-tema/css/style.css" rel="stylesheet">
-    
+
 
 </head>
 
 <body>
 
     <div id="wrapper">
-    @await  Html.PartialAsync("/Views/Admin/AdminNavBarPartial.cshtml")
-       
+        @await  Html.PartialAsync("/Views/Admin/AdminNavBarPartial.cshtml")
 
-    <div id="page-wrapper" class="gray-bg">
+
+        <div id="page-wrapper" class="gray-bg">
             <div class="row border-bottom">
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                     <div class="navbar-header">
@@ -46,7 +46,7 @@
                                 <li>
                                     <div class="dropdown-messages-box">
                                         <a class="dropdown-item float-left" href="profile.html">
-                                            <img alt="image" class="rounded-circle" src="img/a7.jpg">
+                                            <img alt="image" class="rounded-circle" src="/admin-tema/img/a7.jpg">
                                         </a>
                                         <div class="media-body">
                                             <small class="float-right">46h ago</small>
@@ -59,7 +59,7 @@
                                 <li>
                                     <div class="dropdown-messages-box">
                                         <a class="dropdown-item float-left" href="profile.html">
-                                            <img alt="image" class="rounded-circle" src="img/a4.jpg">
+                                            <img alt="image" class="rounded-circle" src="/admin-tema/img/a4.jpg">
                                         </a>
                                         <div class="media-body ">
                                             <small class="float-right text-navy">5h ago</small>
@@ -72,7 +72,7 @@
                                 <li>
                                     <div class="dropdown-messages-box">
                                         <a class="dropdown-item float-left" href="profile.html">
-                                            <img alt="image" class="rounded-circle" src="img/profile.jpg">
+                                            <img alt="image" class="rounded-circle" src="/admin-tema/img/profile.jpg">
                                         </a>
                                         <div class="media-body ">
                                             <small class="float-right">23h ago</small>
@@ -144,17 +144,17 @@
 
                 </nav>
             </div>
-        @RenderBody()
-        <div class="footer">
-            <div class="float-right">
-                10GB of <strong>250GB</strong> Free.
+            @RenderBody()
+            <div class="footer">
+                <div class="float-right">
+                    10GB of <strong>250GB</strong> Free.
+                </div>
+                <div>
+                    <strong>Copyright</strong> Example Company &copy; 2014-2018
+                </div>
             </div>
-            <div>
-                <strong>Copyright</strong> Example Company &copy; 2014-2018
-            </div>
-        </div>
 
-    </div>
+        </div>
     </div>
 
 
@@ -180,21 +180,21 @@
     <script src="/admin-tema/js/demo/peity-demo.js"></script>
 
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('.i-checks').iCheck({
                 checkboxClass: 'icheckbox_square-green',
                 radioClass: 'iradio_square-green',
             });
         });
     </script>
-    
+
     <!-- jquery UI -->
     <script src="/admin-tema/js/plugins/jquery-ui/jquery-ui.min.js"></script>
-    
+
     <!-- Touch Punch - Touch Event Support for jQuery UI -->
     <script src="/admin-tema/js/plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
-    
-    
+
+
 
     <!-- Jvectormap -->
     <script src="/admin-tema/js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
@@ -359,7 +359,9 @@
         });
     </script>
 
-    @*@await RenderSectionAsync("aaa")*@
+    @await RenderSectionAsync("Scripts", required: false)
+
+
 </body>
 
 </html>

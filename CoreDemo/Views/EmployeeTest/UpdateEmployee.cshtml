@@ -1,0 +1,18 @@
+﻿@model CoreDemo.Project.Web.UI.Controllers.ClassCalisan
+@{
+    ViewData["Title"] = "UpdateEmployee";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>UpdateEmployee</h1>
+
+@using (Html.BeginForm("UpdateEmployee", "EmployeeTest", FormMethod.Post))
+{
+    @Html.Label("ID")
+    @Model.Id
+    <hr />
+    @Html.Label("Çalışan Adı")
+    @Html.TextBoxFor(x=>x.Name,new {@class="form-control"})
+    <hr/>
+    <button type="submit" value="Güncelle">Güncelle</button>
+}

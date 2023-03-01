@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
-using DocumentFormat.OpenXml.Office2010.ExcelAc;
 
 namespace CoreDemo.Project.Web.UI.Areas.Admin.Controllers
 {
@@ -28,6 +27,31 @@ namespace CoreDemo.Project.Web.UI.Areas.Admin.Controllers
             return Json(jsonWriter);
         }
 
+        [HttpPost]
+        public IActionResult AddWriter(WriterClass w)
+        {
+            list.Add(w);
+            var jsonWriters = JsonConvert.SerializeObject(w);
+            return Json(jsonWriters);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteWriter(int id)
+        {
+            var yazar = list.FirstOrDefault(x=>x.id == id);
+            list.Remove(yazar);
+            return Json(yazar);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateWriter(WriterClass writerClass)
+        {
+            var yazar = list.FirstOrDefault(x => x.id == writerClass.id);
+            yazar.name = writerClass.name;
+            var jsonWriter = JsonConvert.SerializeObject(writerClass);
+            return Json(jsonWriter);
+        }
+
         public static List<WriterClass> list = new List<WriterClass>()
         {
             new WriterClass()
@@ -37,14 +61,15 @@ namespace CoreDemo.Project.Web.UI.Areas.Admin.Controllers
             },
             new WriterClass()
             {
-                id = 1,
+                id = 2,
                 name = "arzu"
             },
             new WriterClass()
             {
-                id = 1,
+                id = 3,
                 name = "burak"
             }
         };
+
     }
 }

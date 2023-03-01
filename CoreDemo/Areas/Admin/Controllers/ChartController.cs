@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using CoreDemo.Project.Entities.Concrete;
 using CoreDemo.Project.Web.UI.Areas.Admin.Models;
 using Microsoft.AspNetCore.Mvc;
 

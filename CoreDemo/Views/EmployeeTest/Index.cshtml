@@ -1,0 +1,42 @@
+﻿@model List<CoreDemo.Project.Web.UI.Controllers.ClassCalisan>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Çalışan Listesi API Aracılığı ile gelmekte</h1>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox ">
+                <div class="ibox-content">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Kategori Adı</th>
+                                <th>Sil</th>
+                                <th>Düzenle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.Name</td>
+                                    <td><a href="/EmployeeTest/DeleteEmployee/DeleteEmployee/@item.Id">Sil</a></td>
+                                    <td><a href="/EmployeeTest/UpdateEmployee/@item.Id">Update</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <a href="/EmployeeTest/AddEmployee/">Yeni Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,7 +4,6 @@ using System.Linq;
 using ClosedXML.Excel;
 using CoreDemo.Project.DataAccess.Concrete;
 using CoreDemo.Project.Web.UI.Areas.Admin.Models;
-using DocumentFormat.OpenXml.Office2010.ExcelAc;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDemo.Project.Web.UI.Areas.Admin.Controllers

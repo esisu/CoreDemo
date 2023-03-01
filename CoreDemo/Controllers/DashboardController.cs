@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using CoreDemo.Project.DataAccess.Concrete;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDemo.Project.Web.UI.Controllers

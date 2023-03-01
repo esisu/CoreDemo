@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Xml.Linq;
 using CoreDemo.Project.Business.Concrete;
 using CoreDemo.Project.DataAccess.Concrete;
 using CoreDemo.Project.DataAccess.EntityFramework;

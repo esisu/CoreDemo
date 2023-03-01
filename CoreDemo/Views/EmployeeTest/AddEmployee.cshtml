@@ -1,0 +1,15 @@
+﻿@model CoreDemo.Project.Web.UI.Controllers.ClassCalisan
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Api Çalışan Ekle</h1>
+
+@using (Html.BeginForm("AddEmployee", "EmployeeTest", FormMethod.Post))
+{
+    <hr/>
+    @Html.Label("Çalışan Adı")
+    @Html.TextBoxFor(x=>x.Name,new {@class="form-control"})
+    <button type="submit" value="Ekle">Ekle</button>
+}

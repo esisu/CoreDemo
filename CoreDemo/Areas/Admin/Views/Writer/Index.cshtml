@@ -12,44 +12,130 @@
                 </div>
                 <div class="ibox-content">
                     <button type="button" class="btn btn-danger" id="btnGetList">Yazar Listesi</button>
-                    <button type="button" class="btn btn-danger" id="btnGetList">Yazar Getir</button>
+                    <button type="button" class="btn btn-danger" id="btnGetWriter">Yazar Getir</button>
+                    <button type="button" class="btn btn-info" id="btnYazarEkle">Yazar Ekle</button>
+                    <button type="button" class="btn btn-info" id="btnYazarSil">Yazar Sil</button>
+                    <button type="button" class="btn btn-primary" id="btnYazarGuncelle">Yazar Güncelle</button>
                     <br />
                     <div id="writerList">Yazar Listesi</div>
                     <div id="writerGet">Tek Yazar Getir</div>
                     <div>
-                        <input type="text" id="id" placeholder="Yazar Id" class="form-control"/>
+                        <input type="text" id="id" placeholder="Yazar Id" class="form-control" />
+                    </div>
+                    <br />
+                    <div>
+                        <span>Yazar Ekle</span>
+                        <br/>
+                        <input type="text" class="form-control" id="txtwriterId" placeholder="YazarId"/>
+                        <br/>
+                        <input type="text" class="form-control" id="txtwriterName" placeholder="YazarAdı"/>
+                    </div>
+                    <div>
+                        <span>Yazar Sil</span>
+                        <br/>
+                        <input type="text" class="form-control" id="yazarSilid" placeholder="YazarId"/>
+                    </div>
+                    <div>
+                        <span>Yazar Güncelle</span>
+                        <br/>
+                        <input type="text" class="form-control" id="yazarGuncelleid" placeholder="YazarId"/>
+                        <input type="text" class="form-control" id="yazarGuncelleAd" placeholder="YazarAdı"/>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-@*@section aaa
-    {*@
-<script>
+
+@section Scripts
+{
+    <script>
         $("#btnGetList").click(function () {
             $.ajax({
                 contentType: "application/json",
                 dataType: "json",
                 type: "Get",
-                url: "/Admin/Writer/WriterList",
+                url: "/Admin/Writer/WriterList/",
                 success: function (func) {
-                    let w = JQuery.parseJSON(func)
+                    let w = jQuery.parseJSON(func)
                     console.log(w);
-                    let tablehtml = "<table class=table table-borderd> <tr><th>yazar ıd</th><th>yazar adı</th></tr>";
+                    let tablehtml = `<table class="table table-borderd"> <tr><th>yazar ıd</th><th>yazar adı</th></tr>`;
                     $.each(w, (index, value) => {
                         tablehtml += `<tr><td>${value.id}</td><td>${value.name}</td></tr>`
                     });
-                        tablehtml += "</table>";
-                        $("#writerList").html(tablehtml);
+                    tablehtml += "</table>";
+                    $("#writerList").html(tablehtml);
                 }
             });
         });
 
+        $("#btnGetWriter").click(function () {
+            let id = $("#id").val();
+            $.ajax({
+                contentType: "json",
+                type: "get",
+                url: "/Admin/Writer/GetWriterById/",
+                data: { id: id },
+                success: function (func) {
+                    let w = jQuery.parseJSON(func);
+                    console.log(func);
+                    let getvalue = `<table class="table table-bordered"> <tr><th>Yazar Id</th><th>Yazar Adı</th></tr> <tr><td>${w.id}</td><td>${w.name}</td></tr></table>`;
+                    $("#writerGet").html(getvalue);
+                }
+            });
+        });
 
-    $("#writerGet").click(function () {
-        let id = $("#id").val();
-        console.log(id);
-        }
+    $("#btnYazarEkle").click(function () 
+    {
+        let writer = 
+        {
+            Id: $("#txtwriterId").val(),
+            Name: $("#txtwriterName").val()
+        };
+        $.ajax({
+            type: "post",
+            url: "/Admin/Writer/AddWriter/",
+            data: writer,
+                success: function (func) 
+                {
+                    let result = jQuery.parseJSON(func);
+                    alert("Yazar Ekleme Tamamlandı");
+                }
+        });
+    });
+    
+    $("#btnYazarSil").click(x=>
+        {
+            let id=$("#yazarSilid").val();
+            $.ajax({
+                url: "/Admin/Writer/DeleteWriter/"+id,
+                    type: "post",                    
+                    dataType:"json",
+                        success: function (func) 
+                        {
+                            loadData();
+                            //alert("yazar Silindi")
+                        }
+                });
+    });
+    
+    $("#btnYazarGuncelle").click(x=>{
+        let writer = 
+        {
+            Id: $("#yazarGuncelleid").val(),
+            Name: $("#yazarGuncelleAd").val()
+        };
+            $.ajax({
+                url: "/Admin/Writer/UpdateWriter/",
+                    type: "post",                    
+                    data:writer,
+                        success: function (func) 
+                        {
+                            //loadData();
+                            alert("Güncelleme Yapıldı")
+                        }
+                });
+    });
+
     </script>
-@*}*@
+}
